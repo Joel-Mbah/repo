@@ -126,14 +126,17 @@ public class TwoDimArrayPractice extends JFrame
     //  where row is the index of the array's current row
     //  and column is the index of the array's current column
     // Write your code here:
-
-
-
-
-
-
-
-
+	   for(int row = 0; row < intArray.length; row++)
+	   {
+		   for (int col = 0; col < intArray[row].length; col++)
+		   {
+			   System.out.print(intArray[row][col]);
+			   System.out.print(" ");
+			   animate(row,col);
+		   }
+	   }
+	   
+	   
    
   }
   // end of printArray method
@@ -152,6 +155,12 @@ public class TwoDimArrayPractice extends JFrame
     //  where row is the index of the array's current row
     //  and column is the index of the array's current column
     // Write your code here:
+	   for (int col = 0; col < intArray[row].length; col++)
+	   {
+		   intArray[row][col] = value;
+		   
+		   animate(row, col);
+	   }
 
 
 
@@ -173,8 +182,17 @@ public class TwoDimArrayPractice extends JFrame
     //        column is the index of the array's current column
     //        minimum is the local variable storing the current minimum
     // Write your code here:
+	   
+	   int min = intArray[0][column];
+		   for (int row = 0; row < intArray.length; row++)
+		   {
+			   if (intArray[row][column] < min)
+				   min = intArray[row][column];
+			   
+			   animate(row, column, min);
+		   }
 
-      return 0; // replace this line with your return statement
+      return min; // replace this line with your return statement
    }
    // end of findMinimumn method
 
@@ -193,8 +211,20 @@ public class TwoDimArrayPractice extends JFrame
     //        column is the index of the array's current column, and
     //        num is the local variable storing the current frequency count
     // Write your code here:
+	   int num = 0;
+	   for(int row = 0; row < intArray.length; row++)
+	   {
+		   for (int col = 0; col < intArray[row].length; col++)
+		   {
+			   if (intArray[row][col] == value)
+			   {
+				   num++;
+			   }
+			   animate(row, col,num)
+		   }
+	   }
 
-     return 0; // replace this line with your return statement
+     return num; // replace this line with your return statement
    }
    // end of countFound method
 
